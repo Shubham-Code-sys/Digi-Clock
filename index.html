@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#56cc4e">
+    <title>Digi-Clock</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="logo192.png">
+    <link rel="shortcut icon" href="logo192.png" type="image/x-icon">
+</head>
+
+<style>
+    *{
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+    :root{
+        user-select: none;
+    }
+    body{
+        background: linear-gradient(135deg, rgb(86, 204, 78) 30%, rgb(37, 207, 116) 100%);
+        height: 100vh;
+        width: 100vw;
+    }
+    #clock-box{
+        margin: auto;
+        padding: 5%;
+        padding-top: 20%;
+        text-align: center;
+    }
+    #clock-box p{
+        font-size: 4rem;
+        font-weight: 600;
+        background: linear-gradient(136deg, rgb(79, 79, 79) 30%, rgb(66, 66, 66) 100%);
+        border-radius: 20px;
+        padding: 25px;
+        color: #fff;
+        display: inline;
+        max-width: 450px;
+        box-shadow: 0px 0px 100px rgba(50, 50, 50, 0.75);
+        border-left: 5px solid rgb(97 97 97 / 50%);
+        border-bottom: 5px solid rgb(97 97 97 / 50%);
+    }
+
+    @media(max-width:425px){
+        #clock-box{
+            padding-top: 40%;
+        }
+
+        #clock-box p{
+            font-size: 3rem;
+            padding: 15px;
+        }
+    }
+</style>
+
+<body>
+    <div id="clock-box">
+        <p>00:00:00 -M</p>
+    </div>
+
+    <script defer>
+        var clock = setInterval(clockFunction, 1000)
+
+        function clockFunction(){
+            let date = new Date();
+            let time = date.toLocaleTimeString();
+            document.getElementsByTagName('p')[0].innerText = time;
+        }
+    </script>
+    <script src="index.js" defer></script>
+</body>
+</html>
